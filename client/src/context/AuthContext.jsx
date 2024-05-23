@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import React, { useCallback , useEffect} from 'react';
 import { baseUrl, postRequest } from "../utils/services";
+import { useContext } from "react";
 
 export const AuthContext = createContext()
 
@@ -27,7 +28,7 @@ const [avatars, setAvatars] = useState([]);
 const [isLoading, setIsLoading] = useState(true);
 const [selectedAvatar, setSelectedAvatar] = useState(undefined);
     console.log("User", user);
-    //console.log("loginInfo", loginInfo);
+    console.log("loginInfo", loginInfo); //refresh
 
    
 
@@ -36,12 +37,6 @@ const [selectedAvatar, setSelectedAvatar] = useState(undefined);
 
         setUser(JSON.parse(user));
     }, []);
-    
-    // useEffect(() => {
-    //     const loginInfo= localStorage.getItem("loginInfo");
-
-    //     setUser(JSON.parse(loginInfo));
-    // }, []);
     
 
     const updateRegisterInfo = useCallback((info) =>{
@@ -124,7 +119,7 @@ const [selectedAvatar, setSelectedAvatar] = useState(undefined);
     }, [loginInfo]);
 
     const logoutUser = useCallback(() => {
-        localStorage.removeItem("User");
+        localStorage.removeItem("Login");
         setUser(null);
     }, []);
 
@@ -188,3 +183,9 @@ const [selectedAvatar, setSelectedAvatar] = useState(undefined);
     </AuthContext.Provider>
     );
 }
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context;};

@@ -12,15 +12,15 @@ body{
   margin-bottom: 1rem;
 }
 
-.single-user {
-  background: rgb(0, 213, 255);
+/* .single-user {
+  background: rgb(213, 15, 199);
   color: white;
   cursor: pointer;
   padding: 5px 7px;
   border-radius: 10px;
   margin-right: 0.5rem;
   position: relative;
-}
+} */
 
 /* User Card */
 .user-card {
@@ -58,25 +58,26 @@ body{
 
 /* Chat Box */
 .chat-box {
-  max-height: calc(100vh - 10rem);
+  max-height: calc(100vh - 8rem);
   overflow-y: auto;
   background: rgb(249, 244, 244);
   border-radius: 10px;
 }
 
-.messages-box {
-  height: 85vh;
+.larger-message-box {
+  height: calc(85vh - 3rem); /* Înălțimea casetei de mesaje redusă pentru a lăsa loc pentru caseta de introducere a mesajelor */
 }
+
 
 /* Chat Header */
 .chat-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
+  padding: 0.5rem;
   color: white;
-  background: #eec9f4;
-  ;
+  background: #ff0068;
+  
 }
 
 /* Messages */
@@ -88,7 +89,7 @@ body{
 
 .message {
   color: white;
-  background: #282828;
+  background: #ff0068;
   padding: 0.75rem;
   border-radius: 5px;
   max-width: 50%;
@@ -96,7 +97,7 @@ body{
 
 .message.self {
   color: white;
-  background: #eec9f4;
+  background: #f3ddea;
 }
 
 .message-footer {
@@ -109,12 +110,12 @@ body{
 /* Chat Input  */
 .chat-input {
   width: 100%;
-  background: #eec9f4;
+  background: #e10078;
   padding: 1rem;
 }
 .send-btn {
   border: none;
-  background: rgb(223, 64, 141);
+  background: #ff0068;
   color: white;
   height: 40px;
   width: 40px;
@@ -212,3 +213,115 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+.bottom-bar {
+  position: fixed;
+  bottom: 5;
+  left: 0;
+  width: 120%;
+  background-color: #0e1626; /* Schimbă culoarea de fundal conform nevoilor tale */
+  color: #fff; /* Schimbă culoarea textului conform nevoilor tale */
+}
+
+
+
+.single-user {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.single-user:hover {
+  background-color: #f2f2f2;
+}
+
+.user-online {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  align-self: center;
+}
+/* styles.css */
+.user-sidebar {
+  width: 250px;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+
+.user-card {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-card:hover {
+  background-color: #f2f2f2;
+}
+
+.user-online {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.text-content {
+  flex-grow: 1;
+}
+
+.text {
+  color: #777;
+}
+
+.date {
+  color: #aaa;
+}
+
+.this-user-notifications {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+.single-user {
+  position: relative;
+  display: inline-block;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Face elementul să fie un cerc */
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.user-avatar:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+}
+

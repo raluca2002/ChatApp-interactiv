@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  /* --primary-color: #0DFF92; */
+  --secondary-color: #000000; /* Negru */
+  --accent-color: #ff2a66;
+  --dark-color: #222222;
+  --light-color: #f0f0f0;
+  --text-color: #cecece;
+  --highlight-color: #ff0068;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  background: var(--dark-color);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+}
+
+.result-page-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: var(--secondary-color); /* Fundal negru */
+}
+
+.title {
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color); /* Fundal negru */
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--text-color);
+  padding: 2em 3em;
+  gap: 1em;
+  background: var(--dark-color);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.container .flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--dark-color);
+}
+
+.container .flex span {
+  font-size: 1.4em;
+  color: var(--text-color);
+}
+
+.container .flex span.bold {
+  font-weight: bold;
+}
+
+.container .flex span.achive {
+  font-weight: bold;
+  color: var(--highlight-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-header {
+  color: var(--text-color);
+  font-size: 1.1em;
+  text-align: center;
+  background: var(--secondary-color);
+  padding: 18px 0;
+}
+
+.table-body {
+  font-size: 1.1em;
+  text-align: center;
+  background: var(--dark-color);
+  color: var(--light-color);
+  padding: 18px 0;
+}
+
+.table-header > tr > td {
+  border: 1px solid var(--primary-color);
+}
+
+.table-body > tr {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.table-body > tr:nth-of-type(even) {
+  background: var(--secondary-color);
+}
+
+.table-body > tr:hover {
+  background: var(--primary-color);
+  color: var(--dark-color);
+}

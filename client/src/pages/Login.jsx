@@ -32,10 +32,10 @@ const Login = () => {
                                 />
                             </Form.Group>
                             <div className="d-flex justify-content-between align-items-center mb-3">
-                                <Button variant="dark" type="submit" disabled={isLoginLoading}>
+                                <Button variant="info" type="submit" disabled={isLoginLoading}>
                                     {isLoginLoading ? "Logging in..." : "Log In"}
                                 </Button>
-                                <NavLink href="/forgot-password" style={{ color: "#ffffff" }}>Forgot Password?</NavLink>
+                                {/* <NavLink href="/forgot-password" style={{ color: "#ffffff" }}>Forgot Password?</NavLink> */}
                             </div>
                             {loginError?.error && (
                                 <Alert variant="danger" className="mt-3">

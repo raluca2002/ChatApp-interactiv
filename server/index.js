@@ -7,7 +7,8 @@ const userRoute = require("./Routes/userRoute")
 const chatRoute = require("./Routes/chatRoute")
 const messageRoute = require("./Routes/messageRoute")
 const teacherRoute = require("./Routes/teacherRoute")
-
+const questionRoute =  require("./Routes/questionRoute")
+const resultRoute = require("./Routes/resultRoute")
 const app = express()  //aplicatia va fi un obiect care va avea diverse metode care vor fi folosite pentru a crea aplicatia
 require("dotenv").config()
 
@@ -19,8 +20,8 @@ app.use("/api/users", userRoute);
 app.use("/api/chats", chatRoute);
 app.use("/api/messages", messageRoute);
 app.use("/api/teachers", teacherRoute);
-
-
+app.use("/api/questions", questionRoute);
+app.use("/api/results", resultRoute)
 app.get("/", (req,res) =>{
     res.send("Wlecome our game app API")
 });

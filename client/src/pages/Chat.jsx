@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Container, Stack} from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import ChatBox from "../components/chat/chatBox";
 import { ChatContext } from "../context/ChatContext";
 import { AuthContext } from "../context/AuthContext";
@@ -8,31 +8,29 @@ import UserChat from "../components/chat/UserChat";
 import PotentialChats from "../components/chat/PotentialChats";
 
 const Chat = () => {
-
-    const {user} = useContext(AuthContext);
-
-    const {userChats, isUserChatsLoading, updateCurrentChat} = useContext(ChatContext);
+    const { user } = useContext(AuthContext);
+    const { userChats, isUserChatsLoading, updateCurrentChat } = useContext(ChatContext);
 
     return (
-    <Container fluid>
-        <PotentialChats/>
-        {userChats?.length < 1 ? null :(
-            <Stack direction="horizontal" gap={4} className="align-itmes-start">
-                <Stack className="messages-box flex-grow-0 pe-3" gap={3}>
-                    {isUserChatsLoading &&  <p>Loading chats...</p>}
-                    {userChats?.map((chat,index)=>{
-                            return(
+        <Container fluid className="d-flex flex-column vh-100">
+            <PotentialChats />
+            {userChats?.length < 1 ? null : (
+                <Stack direction="horizontal" gap={4} className="align-itmes-start flex-grow-1">
+                    <Stack className="messages-box flex-grow-0 pe-3 larger-message-box" gap={3}>
+                        {isUserChatsLoading && <p>Loading chats...</p>}
+                        {userChats?.map((chat, index) => {
+                            return (
                                 <div key={index} onClick={() => updateCurrentChat(chat)}>
-                                    <UserChat chat ={chat} user={user}/>
+                                    <UserChat chat={chat} user={user} />
                                 </div>
                             )
                         })}
+                    </Stack>
+                    <ChatBox />
                 </Stack>
-            <ChatBox/>
-            </Stack>
             )}
-    </Container>
+        </Container>
     );
 }
- 
+
 export default Chat;

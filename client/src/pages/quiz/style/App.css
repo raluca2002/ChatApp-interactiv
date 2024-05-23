@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --primary-color: #ff0068;
+  --dark-color: #0e1626;
+  --light-color: #0e1626; /* Fundalul închis */
+  --text-color: #0e1626;
+  --highlight-color: #ff2a66;
+  --container-bg-color: #0e1626; /* Fundal închis pentru container */
+}
+
+body, html {
+  height: 100%;
+  background: var(--dark-color);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  height: auto;
+  width: 90%;
+  max-width: 1000px; /* Mărirea containerului */
+  padding: 40px; /* Mărirea padding-ului */
+  /* background: var(--container-bg-color); Fundal închis pentru container */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #000000; /* Negru */
+
+}
+
+.container .title {
+  font-size: 2.5em;
+  text-align: center;
+  border: 5px solid var(--primary-color);
+  padding: 0.5em 0.2em; /* Ajustarea padding-ului */
+  border-radius: 4px;
+  background-color: #000000; /* Negru */
+}
+
+.text-light {
+  color: var(--text-color); /* Schimbarea culorii textului */
+}
+
+.questions-container {
+  background-color: #000000; /* Negru */
+  padding: 2em;
+}
+
+.question-title {
+  font-size: 1.8em; /* Ajustarea dimensiunii fontului */
+  margin-bottom: 1em;
+}
+
+.options-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  padding: 1em;
+  background: #444444; /* Fundal închis pentru opțiuni */
+  border-radius: 4px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.option-item:hover {
+  background: #555555; /* Schimbarea culorii la hover */
+}
+
+.option-item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.option-label {
+  font-size: 1.2em;
+  padding-left: 2.5em;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.check {
+  position: absolute;
+  left: 1em;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  transition: border-color 0.3s ease;
+}
+
+.option-item input[type="radio"]:checked ~ .check {
+  border-color: var(--primary-color);
+}
+
+.check::before {
+  content: '';
+  display: block;
+  width: 0.6em;
+  height: 0.6em;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.option-item input[type="radio"]:checked ~ .check::before {
+  transform: scale(1);
+}
+
+.grid {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: var(--dark-color); /* Culoarea textului butoanelor */
+}
+
+.btn:hover {
+  background-color: var(--highlight-color);
+}
+
+.next {
+  background-color: var(--primary-color);
+}
+
+.prev {
+  background-color: #faff5a;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-item:hover {
+  background-color: #f1f1f1;
+}
+
+.option-item.selected {
+  background-color: #d1e7dd;
+  border-color: #0f5132;
+}
+
+.option-label {
+  margin-left: 10px;
+  cursor: pointer;
+}
