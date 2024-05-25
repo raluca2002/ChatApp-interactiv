@@ -21,6 +21,9 @@ import Result from'./pages/quiz/Result'
 import LearningMaterials from './components/learning/LearningMaterials';
 import BazeProgramarii from './components/learning/materials/Baze';
 import Clasament from './pages/Clasament'
+import StructuriDate from './components/learning/materials/StructuriDate';
+import AlgoritmiClasici from './components/learning/materials/AlgoritmiClasici';
+import AlgoritmiRecursivi from './components/learning/materials/AlgoritmiRecursivi';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -50,6 +53,10 @@ function App() {
             <Route path="/result" element={user ? <Result /> : <HomePage />} />
             <Route path="/materials" element={user ? <LearningMaterials/>: <HomePage />} />
             <Route path="/baze-programarii" element={user ? <BazeProgramarii/>: <HomePage />} />
+            <Route path="/structuri-date" element={user ? <StructuriDate/>: <HomePage />} />
+            <Route path="/algoritmi" element={user ? <AlgoritmiClasici/>: <HomePage />} />
+            <Route path="/algoritmi-recursivi" element={user ? <AlgoritmiRecursivi/>: <HomePage />} />
+
             <Route path="/clasament" element={user ? <Clasament/>: <HomePage />} />
 
             <Route path="" element={<Navigate to="/" />} />

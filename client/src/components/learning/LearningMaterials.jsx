@@ -1,33 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
-
+import { Container, Card, Button } from 'react-bootstrap';
 
 const LearningMaterials = () => {
   const materials = [
-    { title: "Baze ale programării", url: "/baze-programarii" }, 
-    { title: "Structuri de date de bază", description: "", url: "/fizica" },
-    { title: "Algoritmi clasici", description: "", url: "/matematica" },
-    { title: "Algoritmi recursivi", description: "", url: "/matematica" },
+    { title: "Baze ale programării", url: "/baze-programarii" },
+    { title: "Structuri de date de bază", url: "/structuri-date" },
+    { title: "Algoritmi clasici", url: "/algoritmi" },
+    { title: "Algoritmi recursivi", url: "/algoritmi-recursivi" },
   ];
 
   return (
     <Container className="mt-4">
       <div className="text-center">
-        <h1 className="text-center  mb-4" style={{ fontSize: '2.5rem' }}>Materiale de Învățare</h1>
+        <h1 className="mb-4" style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>Materiale de Învățare</h1>
       </div>
       <div className="row justify-content-center">
         <div className="col-lg-8">
-          <ul className="list-group list-group-flush">
+          <div className="card-columns">
             {materials.map((material, index) => (
-              <li key={index} className="list-group-item">
-                <Link to={material.url} className="text-decoration-none text-dark">
-                  <h2 className="mb-0" style={{ fontSize: '1.5rem' }}>{material.title}</h2>
-                  {material.description && <p className="mb-0 mt-2" style={{ fontSize: '1rem' }}>{material.description}</p>}
-                </Link>
-              </li>
+              <Card key={index} className="mb-4 shadow-sm">
+                <Card.Body className="d-flex flex-column align-items-center">
+                  <Card.Title style={{ fontSize: '1.75rem', fontWeight: 'bold' }}>{material.title}</Card.Title>
+                  {material.description && (
+                    <Card.Text style={{ fontSize: '1rem' }}>{material.description}</Card.Text>
+                  )}
+                  <Link to={material.url}>
+                    <Button variant="info" className="mt-3">Explorează</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </Container>
