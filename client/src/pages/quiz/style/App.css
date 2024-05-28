@@ -15,46 +15,69 @@ body, html {
   margin: 0;
   padding: 0;
   color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Arial', sans-serif;
+}
+
+.quiz-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
   display: block;
   position: relative;
   margin: 40px auto;
-  height: auto;
   width: 90%;
-  max-width: 1000px; /* Mărirea containerului */
-  padding: 40px; /* Mărirea padding-ului */
-  /* background: var(--container-bg-color); Fundal închis pentru container */
+  max-width: 1000px;
+  padding: 40px;
+  background: var(--container-bg-color);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-color: #000000; /* Negru */
-
 }
 
-.container .title {
+.title {
   font-size: 2.5em;
   text-align: center;
   border: 5px solid var(--primary-color);
-  padding: 0.5em 0.2em; /* Ajustarea padding-ului */
+  padding: 0.5em 0.2em;
   border-radius: 4px;
-  background-color: #000000; /* Negru */
+  background-color: var(--container-bg-color);
+  color: var(--text-color);
 }
 
 .text-light {
-  color: var(--text-color); /* Schimbarea culorii textului */
+  color: var(--text-color);
 }
 
 .questions-container {
-  background-color: #000000; /* Negru */
-  padding: 2em;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
+  color: #ffffff;
+  margin: 20px;
 }
 
 .question-title {
-  font-size: 1.8em; /* Ajustarea dimensiunii fontului */
-  margin-bottom: 1em;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff007f;
+  text-align: center;
+  border-bottom: 2px solid #ff007f;
+  padding-bottom: 10px;
 }
+
+/* .code-block {
+  background: #333333;
+  border-left: 5px solid var(--primary-color);
+  padding: 10px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  color: var(--text-color);
+  border-radius: 4px;
+  margin-bottom: 1em;
+} */
 
 .options-list {
   list-style: none;
@@ -67,14 +90,15 @@ body, html {
   align-items: center;
   margin-bottom: 1em;
   padding: 1em;
-  background: #444444; /* Fundal închis pentru opțiuni */
+  background: #444444;
   border-radius: 4px;
   position: relative;
   transition: background 0.3s ease;
+  cursor: pointer;
 }
 
 .option-item:hover {
-  background: #555555; /* Schimbarea culorii la hover */
+  background: #e460a0;
 }
 
 .option-item input[type="radio"] {
@@ -131,7 +155,7 @@ body, html {
   font-size: 1.2em;
   cursor: pointer;
   transition: background 0.3s ease;
-  color: var(--dark-color); /* Culoarea textului butoanelor */
+  color: var(--dark-color);
 }
 
 .btn:hover {
@@ -146,27 +170,17 @@ body, html {
   background-color: #faff5a;
 }
 
-.option-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.option-item:hover {
-  background-color: #f1f1f1;
-}
-
 .option-item.selected {
   background-color: #d1e7dd;
   border-color: #0f5132;
 }
 
-.option-label {
-  margin-left: 10px;
-  cursor: pointer;
+.code-block {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ffcc00;
+  margin: 10px 0;
 }

@@ -17,7 +17,7 @@ const Result = () => {
     const { questions: { queue, answers }, result: { result } } = useSelector(state => state);
     const totalPoints = queue.length * 10;
     const attempts = attempts_Number(result);
-    const earnPoints = earnPoints_Number(result, answers, 10);
+    const earnPoints = earnPoints_Number(result, answers, 15);
     const flag = flagResult(totalPoints, earnPoints);
     const { user, logoutUser } = useContext(AuthContext);
 
@@ -70,9 +70,9 @@ const Result = () => {
                 <Link className='btn' to={'/single-player'} onClick={onRestart}>Restart</Link>
             </div>
 
-            <div className="result-table">
+            {/* <div className="result-table">
                 <ResultTable />
-            </div>
+            </div> */}
         </div>
     );
 }

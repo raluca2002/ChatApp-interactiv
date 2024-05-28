@@ -1,3 +1,4 @@
+// src/components/Questions.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFetchQuestion } from '../../hooks/useFetchQuestion';
@@ -28,7 +29,16 @@ export default function Questions({ onChecked }) {
 
     return (
         <div className='questions-container'>
-            <h2 className='text-light question-title'>{questions?.question}</h2>
+            <h2 className='text-light question-title'>{questions?.question.split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                    {line.includes('Algorithm') ? (
+                        <pre className='code-block'>{line}</pre>
+                    ) : (
+                        <span>{line}</span>
+                    )}
+                    <br />
+                </React.Fragment>
+            ))}</h2>
             <ul key={questions?.id} className='options-list'>
                 {questions?.options.map((q, i) => (
                     <li key={i} className='option-item'>
@@ -39,7 +49,7 @@ export default function Questions({ onChecked }) {
                             id={`q${i}-option`}
                             onChange={() => onSelect(i)}
                         />
-                        <label className='text-primary option-label' htmlFor={`q${i}-option`}>{q}</label>
+                        <label className='text-info option-label' htmlFor={`q${i}-option`}>{q}</label>
                         <div className={`check ${result[trace] == i ? 'checked' : ''}`}></div>
                     </li>
                 ))}

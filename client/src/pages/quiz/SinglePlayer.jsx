@@ -27,7 +27,7 @@ const SinglePlayerPage = () => {
             <Row className="justify-content-center align-items-center" style={{ height: "100vh" }}>
                 <Col xs={12} md={6} className="text-center">
                     <div>
-                        <h1 className="creepy-text">Welcome to Single Player Mode!</h1> {/* Textul creepy */}
+                        <h1 className="creepy-text">Welcome to the game!</h1> {/* Textul creepy */}
 
                         <ol>
                            
@@ -39,7 +39,7 @@ const SinglePlayerPage = () => {
                          </div>                    
                         )} 
                         <Link to="/start-game" className="mt-3 d-block">
-                            <Button variant="primary" onClick={handleStartGame} className="mt-3">Start Game</Button> {/* Butonul pentru începerea jocului single-player */}
+                            <Button variant="info" onClick={handleStartGame} className="mt-3">Start Game</Button> {/* Butonul pentru începerea jocului single-player */}
                         </Link>
                         <Link to="/" className="mt-3 d-block">
                             <Button variant="info">Back to Home</Button> {/* Butonul pentru a reveni la pagina principală */}

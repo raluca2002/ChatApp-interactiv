@@ -3,7 +3,6 @@ import './style.css'; // importă stilurile personalizate
 import { Card, Container, Button } from 'react-bootstrap';
 
 const AlgoritmiRecursivi = () => {
-
   return (
     <Container className="mt-4">
       <h1 className="text-center mb-4">Algoritmi Recursivi</h1>
@@ -36,17 +35,24 @@ const AlgoritmiRecursivi = () => {
                 n! = n * (n-1)!, cu 0! = 1
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-{`def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n-1)
+{`#include <iostream>
+using namespace std;
 
-print(factorial(5))  # Output: 120`}
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    cout << factorial(5) << endl;  // Output: 120
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -62,19 +68,26 @@ print(factorial(5))  # Output: 120`}
                 F(n) = F(n-1) + F(n-2), cu F(0) = 0 și F(1) = 1
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-{`def fibonacci(n):
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+{`#include <iostream>
+using namespace std;
 
-print(fibonacci(6))  # Output: 8`}
+int fibonacci(int n) {
+    if (n <= 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    cout << fibonacci(6) << endl;  // Output: 8
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -87,29 +100,36 @@ print(fibonacci(6))  # Output: 8`}
                 Binary Search poate fi implementat și recursiv. Algoritmul caută într-o listă sortată, divizând lista în jumătate și căutând în sublista corespunzătoare.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-{`def binary_search(arr, low, high, x):
-    if high >= low:
-        mid = (low + high) // 2
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] > x:
-            return binary_search(arr, low, mid - 1, x)
-        else:
-            return binary_search(arr, mid + 1, high, x)
-    else:
-        return -1
+{`#include <iostream>
+#include <vector>
+using namespace std;
 
-arr = [2, 3, 4, 10, 40]
-x = 10
-result = binary_search(arr, 0, len(arr)-1, x)
-if result != -1:
-    print("Elementul este prezent în indexul", result)
-else:
-    print("Elementul nu este prezent în lista")`}
+int binarySearch(vector<int>& arr, int low, int high, int x) {
+    if (high >= low) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == x)
+            return mid;
+        if (arr[mid] > x)
+            return binarySearch(arr, low, mid - 1, x);
+        return binarySearch(arr, mid + 1, high, x);
+    }
+    return -1;
+}
+
+int main() {
+    vector<int> arr = {2, 3, 4, 10, 40};
+    int x = 10;
+    int result = binarySearch(arr, 0, arr.size() - 1, x);
+    if (result != -1)
+        cout << "Elementul este prezent în indexul " << result << endl;
+    else
+        cout << "Elementul nu este prezent în lista" << endl;
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -119,22 +139,30 @@ else:
             <Card.Body>
               <Card.Title>Turnurile din Hanoi</Card.Title>
               <Card.Text>
-                Problema Turnurilor din Hanoi implică mutarea unui set de discuri de pe o tijă pe alta, folosind o tijă auxiliară, respectând anumite reguli. 
+                Problema Turnurilor din Hanoi implică mutarea unui set de discuri de pe o tijă pe alta, folosind o tijă auxiliară, respectând anumite reguli.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-{`def hanoi(n, source, target, auxiliary):
-    if n == 1:
-        print(f"Move disk 1 from {source} to {target}")
-        return
-    hanoi(n - 1, source, auxiliary, target)
-    print(f"Move disk {n} from {source} to {target}")
-    hanoi(n - 1, auxiliary, target, source)
+{`#include <iostream>
+using namespace std;
 
-hanoi(3, 'A', 'C', 'B')`}
+void hanoi(int n, char source, char target, char auxiliary) {
+    if (n == 1) {
+        cout << "Move disk 1 from " << source << " to " << target << endl;
+        return;
+    }
+    hanoi(n - 1, source, auxiliary, target);
+    cout << "Move disk " << n << " from " << source << " to " << target << endl;
+    hanoi(n - 1, auxiliary, target, source);
+}
+
+int main() {
+    hanoi(3, 'A', 'C', 'B');
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -147,21 +175,34 @@ hanoi(3, 'A', 'C', 'B')`}
                 Generarea combinărilor dintr-o mulțime de elemente poate fi realizată recursiv prin includerea sau excluderea fiecărui element.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-{`def combinations(arr, n):
-    if n == 0:
-        return [[]]
-    if not arr:
-        return []
-    first, rest = arr[0], arr[1:]
-    combs_with_first = [[first] + comb for comb in combinations(rest, n-1)]
-    combs_without_first = combinations(rest, n)
-    return combs_with_first + combs_without_first
+{`#include <iostream>
+#include <vector>
+using namespace std;
 
-print(combinations([1, 2, 3, 4], 2))  # Output: [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]`}
+void combinations(vector<int>& arr, int n, vector<int>& comb, int start) {
+    if (n == 0) {
+        for (int i : comb)
+            cout << i << " ";
+        cout << endl;
+        return;
+    }
+    for (int i = start; i <= arr.size() - n; i++) {
+        comb.push_back(arr[i]);
+        combinations(arr, n - 1, comb, i + 1);
+        comb.pop_back();
+    }
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4};
+    vector<int> comb;
+    combinations(arr, 2, comb, 0);
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -174,43 +215,58 @@ print(combinations([1, 2, 3, 4], 2))  # Output: [[1, 2], [1, 3], [1, 4], [2, 3],
                 Problema n-regine presupune plasarea a n regine pe o tablă de șah de n x n astfel încât nici două regine să nu se atace reciproc.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-{`def is_safe(board, row, col):
-    for i in range(col):
-        if board[row][i] == 1:
-            return False
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-    for i, j in zip(range(row, len(board), 1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-    return True
+{`#include <iostream>
+#include <vector>
+using namespace std;
 
-def solve_n_queens(board, col):
-    if col >= len(board):
-        return True
-    for i in range(len(board)):
-        if is_safe(board, i, col):
-            board[i][col] = 1
-            if solve_n_queens(board, col + 1):
-                return True
-            board[i][col] = 0
-    return False
+bool isSafe(vector<vector<int>>& board, int row, int col) {
+    for (int i = 0; i < col; i++)
+        if (board[row][i])
+            return false;
+    for (int i = row, j = col; i >= 0 && j >= 0; i--, j--)
+        if (board[i][j])
+            return false;
+    for (int i = row, j = col; j >= 0 && i < board.size(); i++, j--)
+        if (board[i][j])
+            return false;
+    return true;
+}
 
-def print_board(board):
-    for row in board:
-        print(" ".join(str(cell) for cell in row))
+bool solveNQueens(vector<vector<int>>& board, int col) {
+    if (col >= board.size())
+        return true;
+    for (int i = 0; i < board.size(); i++) {
+        if (isSafe(board, i, col)) {
+            board[i][col] = 1;
+            if (solveNQueens(board, col + 1))
+                return true;
+            board[i][col] = 0;
+        }
+    }
+    return false;
+}
 
-n = 4
-board = [[0 for _ in range(n)] for _ in range(n)]
-if solve_n_queens(board, 0):
-    print_board(board)
-else:
-    print("Nu există soluție")`}
+void printBoard(vector<vector<int>>& board) {
+    for (int i = 0; i < board.size(); i++) {
+        for (int j = 0; j < board[i].size(); j++)
+            cout << board[i][j] << " ";
+        cout << endl;
+    }
+}
+
+int main() {
+    int n = 4;
+    vector<vector<int>> board(n, vector<int>(n, 0));
+    if (solveNQueens(board, 0))
+        printBoard(board);
+    else
+        cout << "Nu există soluție" << endl;
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>

@@ -8,24 +8,27 @@ const FirstPage = () => {
         <div className="pagina-joc-fundal">
             <Container className="pagina-joc-container">
                 <Row className="justify-content-center align-items-center text-center">
-                    <Col xs={12} md={8}>
+                    <Col xs={12} md={8} lg={6}>
                         <div className="logo-wrapper">
                             <img src="/logoooo.png" alt="BrainyGate Logo" className="pagina-joc-logo" />
                         </div>
                         <h1 className="pagina-joc-titlu">Bine ai venit la BrainyGate!</h1>
-                        <p className="pagina-joc-descriere">
-                            Pregătește-te pentru admiterea la Facultatea de Informatică a Universității Babeș-Bolyai cu BrainyGate!
-                            Acest joc educațional îți oferă oportunitatea perfectă de a-ți testa și îmbunătăți cunoștințele.
-                            Fiecare întrebare te va ajuta să repeți materia și să îți perfecționezi abilitățile necesare pentru a excela la examen.
-                            Nu uita, repetarea este cheia succesului! De asemenea, explorează secțiunea noastră de cursuri pentru resurse suplimentare care te vor ajuta să înveți mai eficient și să fii cu un pas înaintea celorlalți.
-                        </p>
+                        <div className="pagina-joc-descriere">
+                            <h5>Pregătește-te pentru admiterea la informatică cu BrainyGate!</h5>
+                            <h5>Testează-ți cunoștințele și îmbunătățește-ți abilitățile pentru a excela la examen.</h5>
+                            <h5>Repetarea este cheia succesului!</h5>
+                        </div>
                         <Link to="/single-player">
-                            <Button  className="pagina-joc-buton">Play</Button>
+                            <Button className="pagina-joc-buton">Play</Button>
                         </Link>
                         <div className="pagina-joc-info mt-4">
-                            
                             <p className="pagina-joc-cursuri">
-                                Nu uita să vizitezi și secțiunea noastră de <Link to="/materials" className="pagina-joc-link-cursuri">cursuri</Link> pentru resurse suplimentare și materiale de învățare!
+                                Vizitează și secțiunea noastră de <Link to="/materials" className="pagina-joc-link-cursuri">cursuri</Link> pentru resurse suplimentare!
+                            </p>
+                        </div>
+                        <div className="pagina-joc-info mt-4">
+                            <p className="pagina-joc-reguli">
+                                Asigură-te că ai citit <Link to="/rules" className="pagina-joc-link-reguli">regulile jocului</Link> înainte de a începe!
                             </p>
                         </div>
                     </Col>

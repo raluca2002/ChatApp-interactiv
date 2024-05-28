@@ -20,9 +20,9 @@ const StructuriDate = () => {
               <Card.Text>
                 Exemplu de declarație și inițializare a unui vector:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`int vector[5]; // Declara un vector de 5 elemente
+{`int vector[5]; // Declara un vector de 5 elemente
 vector[0] = 10; // Inițializează primul element cu valoarea 10`}
                 </code>
               </pre>
@@ -32,9 +32,9 @@ vector[0] = 10; // Inițializează primul element cu valoarea 10`}
               <Card.Text>
                 Exemplu de implementare a unei liste înlănțuite în limbajul C:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`struct Nod {
+{`struct Nod {
   int data;
   struct Nod *next;
 };
@@ -61,9 +61,9 @@ struct Nod *head = NULL;`}
               <Card.Text>
                 Exemplu de implementare a unei stive în limbajul C++ folosind vectori:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`#include <iostream>
+{`#include <iostream>
 #include <vector>
 
 class Stack {
@@ -121,9 +121,9 @@ int main() {
               <Card.Text>
                 Exemplu de implementare a unei cozi în limbajul Python folosind o listă:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`class Queue:
+{`class Queue:
     def __init__(self):
         self.elements = []
 
@@ -151,8 +151,7 @@ queue.enqueue(1)
 queue.enqueue(2)
 print("Elementul din față:", queue.front())  # Afiseaza: 1
 print("Element scos din coadă:", queue.dequeue())  # Afiseaza: 1
-print("Elementul din față după dequeue:",
-queue.front())  # Afiseaza: 2`}
+print("Elementul din față după dequeue:", queue.front())  # Afiseaza: 2`}
                 </code>
               </pre>
             </Card.Body>
@@ -165,23 +164,24 @@ queue.front())  # Afiseaza: 2`}
                 Arborii sunt structuri de date ierarhice, alcătuite din noduri, fiecare nod putând avea unul sau mai mulți copii.
               </Card.Text>
               <Card.Text>
-                Exemplu de implementare a unui arbore binar în limbajul Python:
+                Exemplu de implementare a unui arbore binar în limbajul C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`class TreeNode:
-    def __init__(self, value):
-        self.val = value
-        self.left = None
-        self.right = None
+{`struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
-# Crearea arborelui:
-#       1
-#      / \\
-#     2   3
-root = TreeNode(1)
-root.left = TreeNode(2)
-root.right = TreeNode(3)`}
+// Crearea arborelui:
+//       1
+//      / \\
+//     2   3
+TreeNode* root = new TreeNode(1);
+root->left = new TreeNode(2);
+root->right = new TreeNode(3);`}
                 </code>
               </pre>
             </Card.Body>
@@ -194,40 +194,115 @@ root.right = TreeNode(3)`}
                 Grafurile sunt structuri de date ce modelează relații între obiecte, constând din noduri (sau vârfuri) și muchii (sau arce) care leagă aceste noduri.
               </Card.Text>
               <Card.Text>
-                Exemplu de implementare a unui graf neorientat folosind o listă de adiacență în Python:
+                Exemplu de implementare a unui graf neorientat folosind o listă de adiacență în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`class Graph:
-    def __init__(self, num_vertices):
-        self.num_vertices = num_vertices
-        self.adj_list = [[] for _ in range(num_vertices)]
+{`#include <iostream>
+#include <vector>
 
-    def add_edge(self, src, dest):
-        self.adj_list[src].append(dest)
-        self.adj_list[dest].append(src)
+class Graph {
+private:
+    int num_vertices;
+    std::vector<std::vector<int>> adj_list;
+public:
+    Graph(int vertices) : num_vertices(vertices) {
+        adj_list.resize(vertices);
+    }
 
-# Crearea unui graf neorientat cu 4 vârfuri:
-#    0---1
-#    |   |
-#    3---2
-graph = Graph(4)
-graph.add_edge(0, 1)
-graph.add_edge(1, 2)
-graph.add_edge(2, 3)
-graph.add_edge(3, 0)`}
+    void add_edge(int src, int dest) {
+        adj_list[src].push_back(dest);
+        adj_list[dest].push_back(src);
+    }
+
+    void print_graph() {
+        for (int i = 0; i < num_vertices; ++i) {
+            std::cout << "Adjacency list of vertex " << i << ": ";
+            for (int j : adj_list[i]) {
+                std::cout << j << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
+};
+
+int main() {
+    Graph graph(4);
+    graph.add_edge(0, 1);
+    graph.add_edge(1, 2);
+    graph.add_edge(2, 3);
+    graph.add_edge(3, 0);
+    graph.print_graph();
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
           </Card>
 
-          {/* Alte structuri de date */}
-          {/* Poți adăuga alte Card-uri pentru alte structuri de date */}
+          <Card className="mb-3">
+            <Card.Body>
+              <Card.Title>Tabele Hash (Hash Tables)</Card.Title>
+              <Card.Text>
+                Tabelele hash sunt structuri de date ce asociază chei cu valori, folosind o funcție hash pentru a calcula indexul unde trebuie stocate perechile cheie-valoare.
+              </Card.Text>
+              <Card.Text>
+                Exemplu de implementare a unei tabele hash simple în C++:
+              </Card.Text>
+              <pre className="code-block">
+                <code>
+{`#include <iostream>
+#include <list>
+#include <vector>
+
+class HashTable {
+private:
+    int capacity;
+    std::vector<std::list<int>> table;
+    int hash_function(int key) {
+        return key % capacity;
+    }
+public:
+    HashTable(int size) : capacity(size) {
+        table.resize(capacity);
+    }
+
+    void insert_item(int key) {
+        int index = hash_function(key);
+        table[index].push_back(key);
+    }
+
+    void delete_item(int key) {
+        int index = hash_function(key);
+        table[index].remove(key);
+    }
+
+    void display_hash() {
+        for (int i = 0; i < capacity; ++i) {
+            std::cout << i;
+            for (auto x : table[i])
+                std::cout << " --> " << x;
+            std::cout << std::endl;
+        }
+    }
+};
+
+int main() {
+    int keys[] = {15, 11, 27, 8, 12};
+    int size = sizeof(keys) / sizeof(keys[0]);
+    HashTable hash_table(7);
+    for (int i = 0; i < size; ++i) {
+        hash_table.insert_item(keys[i]);
+    }
+    hash_table.display_hash();
+    return 0;
+}`}
+                </code>
+              </pre>
+            </Card.Body>
+          </Card>
         </Card.Body>
       </Card>
-
-      {/* Alte categorii de structuri de date */}
-      {/* Poți adăuga alte Card-uri pentru alte categorii de structuri de date */}
 
       <div className="text-center">
         <Button className="pagina-joc-buton" href="/materials">Înapoi la Materiale de Învățare</Button>

@@ -1,9 +1,8 @@
 import React from 'react';
+import { Container, Card, Button, ListGroup } from 'react-bootstrap';
 import './style.css'; // importă stilurile personalizate
-import { Card, Container, Button } from 'react-bootstrap';
 
 const AlgoritmiClasici = () => {
-
   return (
     <Container className="mt-4">
       <h1 className="text-center mb-4">Algoritmi Clasici</h1>
@@ -20,20 +19,34 @@ const AlgoritmiClasici = () => {
                 Bubble Sort este un algoritm de sortare simplu care repetă treceri prin lista, comparând elementele pereche cu pereche și schimbându-le dacă sunt în ordinea greșită.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-arr = [64, 34, 25, 12, 22, 11, 90]
-bubble_sort(arr)
-print("Sorted array:", arr)`}
+void bubbleSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                swap(arr[j], arr[j+1]);
+            }
+        }
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    bubbleSort(arr);
+    cout << "Sorted array: ";
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -46,22 +59,36 @@ print("Sorted array:", arr)`}
                 Insertion Sort este un algoritm de sortare care construiește lista sortată unul câte unul, prin inserarea fiecărui element la poziția corectă.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def insertion_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-arr = [12, 11, 13, 5, 6]
-insertion_sort(arr)
-print("Sorted array:", arr)`}
+void insertionSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+    vector<int> arr = {12, 11, 13, 5, 6};
+    insertionSort(arr);
+    cout << "Sorted array: ";
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -74,21 +101,36 @@ print("Sorted array:", arr)`}
                 Selection Sort este un algoritm de sortare care împarte lista în două părți: o parte sortată și o parte nesortată, selectând repetat cel mai mic element din partea nesortată și mutându-l în partea sortată.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def selection_sort(arr):
-    for i in range(len(arr)):
-        min_idx = i
-        for j in range(i+1, len(arr)):
-            if arr[j] < arr[min_idx]:
-                min_idx = j
-        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-arr = [64, 25, 12, 22, 11]
-selection_sort(arr)
-print("Sorted array:", arr)`}
+void selectionSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n-1; i++) {
+        int min_idx = i;
+        for (int j = i+1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
+            }
+        }
+        swap(arr[min_idx], arr[i]);
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 25, 12, 22, 11};
+    selectionSort(arr);
+    cout << "Sorted array: ";
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -101,40 +143,63 @@ print("Sorted array:", arr)`}
                 Merge Sort este un algoritm de sortare eficient care utilizează metoda divide et impera pentru a împărți lista în subliste, le sortează și le combină pentru a obține lista sortată finală.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def merge_sort(arr):
-    if len(arr) > 1:
-        mid = len(arr) // 2
-        L = arr[:mid]
-        R = arr[mid:]
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-        merge_sort(L)
-        merge_sort(R)
+void merge(vector<int>& arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    vector<int> L(n1), R(n2);
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
 
-        i = j = k = 0
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                arr[k] = L[i]
-                i += 1
-            else:
-                arr[k] = R[j]
-                j += 1
-            k += 1
-        while i < len(L):
-            arr[k] = L[i]
-            i += 1
-            k += 1
-        while j < len(R):
-            arr[k] = R[j]
-            j += 1
-            k += 1
+void mergeSort(vector<int>& arr, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+}
 
-arr = [12, 11, 13, 5, 6, 7]
-merge_sort(arr)
-print("Sorted array:", arr)`}
+int main() {
+    vector<int> arr = {12, 11, 13, 5, 6, 7};
+    mergeSort(arr, 0, arr.size() - 1);
+    cout << "Sorted array: ";
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -147,30 +212,44 @@ print("Sorted array:", arr)`}
                 Quick Sort este un algoritm de sortare eficient, bazat pe divizare și stăpânire, care alege un element pivot și împarte lista în două subliste în funcție de pivot, apoi recursiv sortează aceste subliste.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def partition(arr, low, high):
-    pivot = arr[high]
-    i = low - 1
-    for j in range(low, high):
-        if arr[j] < pivot:
-            i += 1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return i+1
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-def quick_sort(arr, low, high):
-    if low < high:
-        pi = partition(arr, low, high)
-        quick_sort(arr, low, pi-1)
-        quick_sort(arr, pi+1, high)
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
 
-arr = [10, 7, 8, 9, 1, 5]
-n = len(arr)
-quick_sort(arr, 0, n-1)
-print("Sorted array:", arr)`}
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+int main() {
+    vector<int> arr = {10, 7, 8, 9, 1, 5};
+    quickSort(arr, 0, arr.size() - 1);
+    cout << "Sorted array: ";
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -190,23 +269,32 @@ print("Sorted array:", arr)`}
                 Linear Search este un algoritm de căutare simplu care verifică fiecare element al listei până când valoarea căutată este găsită sau lista este epuizată.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def linear_search(arr, x):
-    for i in range(len(arr)):
-        if arr[i] == x:
-            return i
-    return -1
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-arr = [2, 3, 4, 10, 40]
-x = 10
-result = linear_search(arr, x)
-if result != -1:
-    print("Elementul este prezent în indexul", result)
-else:
-    print("Elementul nu este prezent în lista")`}
+int linearSearch(vector<int>& arr, int x) {
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == x)
+            return i;
+    }
+    return -1;
+}
+
+int main() {
+    vector<int> arr = {2, 3, 4, 10, 40};
+    int x = 10;
+    int result = linearSearch(arr, x);
+    if (result != -1)
+        cout << "Elementul este prezent în indexul " << result << endl;
+    else
+        cout << "Elementul nu este prezent în lista" << endl;
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>
@@ -219,30 +307,38 @@ else:
                 Binary Search este un algoritm de căutare eficient într-o listă sortată. El compară valoarea căutată cu elementul din mijloc al listei și elimină jumătatea în care valoarea nu poate fi situată.
               </Card.Text>
               <Card.Text>
-                Implementare în Python:
+                Implementare în C++:
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
-                  {`def binary_search(arr, x):
-    low = 0
-    high = len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] < x:
-            low = mid + 1
-        elif arr[mid] > x:
-            high = mid - 1
-        else:
-            return mid
-    return -1
+                  {`#include <iostream>
+#include <vector>
+using namespace std;
 
-arr = [2, 3, 4, 10, 40]
-x = 10
-result = binary_search(arr, x)
-if result != -1:
-    print("Elementul este prezent în indexul", result)
-else:
-    print("Elementul nu este prezent în lista")`}
+int binarySearch(vector<int>& arr, int x) {
+    int low = 0, high = arr.size() - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == x)
+            return mid;
+        if (arr[mid] < x)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1;
+}
+
+int main() {
+    vector<int> arr = {2, 3, 4, 10, 40};
+    int x = 10;
+    int result = binarySearch(arr, x);
+    if (result != -1)
+        cout << "Elementul este prezent în indexul " << result << endl;
+    else
+        cout << "Elementul nu este prezent în lista" << endl;
+    return 0;
+}`}
                 </code>
               </pre>
             </Card.Body>

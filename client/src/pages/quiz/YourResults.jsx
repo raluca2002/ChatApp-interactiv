@@ -28,6 +28,9 @@ const YourResults = () => {
                 maxScore: maxScores[index]
             }));
 
+            // Sortăm utilizatorii în ordine descrescătoare a punctajului maxim
+            usersWithMaxScores.sort((a, b) => b.maxScore - a.maxScore);
+
             // Actualizăm starea componentei cu rezultatele
             setUserResults(usersWithMaxScores);
         });

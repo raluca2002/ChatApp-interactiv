@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
+import "./materials/style.css";  // Importați fișierul CSS pentru stiluri
 
 const LearningMaterials = () => {
   const materials = [
-    { title: "Baze ale programării", url: "/baze-programarii" },
-    { title: "Structuri de date de bază", url: "/structuri-date" },
-    { title: "Algoritmi clasici", url: "/algoritmi" },
-    { title: "Algoritmi recursivi", url: "/algoritmi-recursivi" },
+    { title: "Baze ale programării", url: "/baze-programarii", description: "Introducere în programare și concepte de bază." },
+    { title: "Structuri de date de bază", url: "/structuri-date", description: "Studiu asupra structurilor de date fundamentale." },
+    { title: "Algoritmi clasici", url: "/algoritmi", description: "Analiza algoritmilor clasici și aplicațiile acestora." },
+    { title: "Algoritmi recursivi", url: "/algoritmi-recursivi", description: "Explorarea algoritmilor recursivi și implementarea lor." },
+    { title: "Analiza și complexitatea algoritmilor", url: "/analiza-complexitate", description: "Tehnici de analiză a algoritmilor și complexitatea lor." },
+    { title: "Programare dinamică", url: "/programare-dinamica", description: "Tehnici și exemple de programare dinamică." },
+    { title: "Teoria grafurilor", url: "/teoria-grafurilor", description: "Studii și aplicații ale teoriei grafurilor." },
   ];
 
   return (

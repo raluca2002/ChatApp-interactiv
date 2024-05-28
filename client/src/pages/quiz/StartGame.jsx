@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Questions from "./Questions";
 import { useSelector, useDispatch } from 'react-redux';
-import { MoveNextQuestion, MovePrevQuestion } from "../../hooks/useFetchQuestion";
+import { MoveNextQuestion, MovePrevQuestion, useFetchQuestion } from "../../hooks/useFetchQuestion";
 import { PushAnswer } from "../../hooks/setResult";
 import { Navigate } from "react-router-dom";
 import "./style/App.css";
@@ -14,6 +14,8 @@ const StartGamePage = () => {
     const { queue, trace } = useSelector(state => state.questions);
     const dispatch = useDispatch();
     const [timerKey, setTimerKey] = useState(0);
+
+    const [getData, setGetData] = useFetchQuestion();
 
     useEffect(() => {
         // Reset timer key on trace change to restart timer
@@ -53,16 +55,24 @@ const StartGamePage = () => {
         handleNext(true);
     };
 
+    if (getData.isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (getData.serverError) {
+        return <div>Error: {getData.serverError.message}</div>;
+    }
+
     return (
         <Container fluid className="quiz-container">
             <Row className="justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-                <AnswerTimer key={timerKey} duration={10} onTimeUp={handleTimeUp} />
+                <AnswerTimer key={timerKey} duration={100} onTimeUp={handleTimeUp} />
                 <Col xs={12} md={8} className="text-center">
                     <div className="container">
                         <h1 className="title">Welcome to the Game!</h1>
                         <Questions onChecked={onChecked} />
                         <div className="grid">
-                            {trace > 0 ? <button className="btn prev" onClick={onPrev}>Prev</button> : null}
+                            {/* {trace > 0 ? <button className="btn prev" onClick={onPrev}>Prev</button> : null} */}
                             <button className="btn next" onClick={() => handleNext(false)}>Next</button>
                         </div>
                     </div>

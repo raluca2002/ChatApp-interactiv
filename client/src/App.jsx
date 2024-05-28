@@ -24,6 +24,10 @@ import Clasament from './pages/Clasament'
 import StructuriDate from './components/learning/materials/StructuriDate';
 import AlgoritmiClasici from './components/learning/materials/AlgoritmiClasici';
 import AlgoritmiRecursivi from './components/learning/materials/AlgoritmiRecursivi';
+import Rules from './pages/Rules';
+import AnalizaAlgoritmi from './components/learning/materials/AnalizaAlgoritmi'
+import ProgramareDinamica from './components/learning/materials/ProgramareDinamica'
+import TeoriaGrafurilor from './components/learning/materials/TeoriaGrafurilor'
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -42,7 +46,7 @@ function App() {
             <Route path="/register" element={user ? <FirstPage /> : <Register />} />
             <Route path="/setavatar" element={user ? <Chat /> : <AvatarSelectionPage />} />
             <Route path="/login" element={user ? <FirstPage /> : <Login />} />
-            {/* <Route path="/rules" element ={user ? <Chat/> : <Rules/>} />  */}
+            <Route path="/rules" element ={user ? <Rules/> : <HomePage/>} /> 
             <Route path="/chat" element={user ? <Chat /> : <Chat />} />
             <Route path="/teacher-login" element={user ? <FirstPageTeacher /> : <TeacherLogin />} />
             <Route path="/first-page" element={user ? <FirstPage /> : <FirstPage />} />
@@ -56,7 +60,9 @@ function App() {
             <Route path="/structuri-date" element={user ? <StructuriDate/>: <HomePage />} />
             <Route path="/algoritmi" element={user ? <AlgoritmiClasici/>: <HomePage />} />
             <Route path="/algoritmi-recursivi" element={user ? <AlgoritmiRecursivi/>: <HomePage />} />
-
+            <Route path="/analiza-complexitate" element={user ? <AnalizaAlgoritmi/>: <HomePage />} />
+            <Route path="/programare-dinamica" element={user ? <ProgramareDinamica/>: <HomePage />} />
+            <Route path="/teoria-grafurilor" element={user ? <TeoriaGrafurilor/>: <HomePage />} />
             <Route path="/clasament" element={user ? <Clasament/>: <HomePage />} />
 
             <Route path="" element={<Navigate to="/" />} />

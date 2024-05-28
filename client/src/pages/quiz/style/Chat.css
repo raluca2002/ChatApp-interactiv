@@ -1,0 +1,62 @@
+.chat-container {
+    background-color: #0e1626;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-box {
+    background-color: #1b2a41;
+    padding: 16px;
+    border-radius: 8px;
+    height: calc(50vh - 32px); /* Ajustăm înălțimea pentru a se potrivi cu caseta de chat */
+    overflow-y: auto; /* Adăugăm scroll */
+    max-width: 400px; /* Lărgirea bara de utilizatori */
+}
+
+.larger-message-box {
+    max-width: 400px; /* Lărgirea bara de utilizatori */
+}
+
+.chat-header {
+    background-color: #ff0068;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.chat-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 50vh; /* Setare înălțime fixă */
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.message.self {
+    background-color: #d1ffd6;
+}
+
+.message-footer {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+}

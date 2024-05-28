@@ -71,7 +71,7 @@ const Register = () => {
                                 />
                             </Form.Group>
                             
-                            <Button variant="dark" type="submit" className="w-100 mb-3" disabled={isRegisterLoading}>
+                            <Button variant="info" type="submit" className="w-100 mb-3" disabled={isRegisterLoading}>
                                 {isRegisterLoading ? "Creating your account" : "Register"}
                             </Button>
                                                         

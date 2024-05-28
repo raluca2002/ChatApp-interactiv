@@ -1,81 +1,93 @@
 .pagina-joc-fundal {
-    background-color: #ff0068;
-    padding: 10px 0;
-    border-radius: 15px;
+    background-color: #0e1626;
+    padding: 3rem 0;
 }
 
 .pagina-joc-container {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-}
-
-.pagina-joc-logo {
-    max-width: 30%;
-    height: auto;
-    margin-bottom: 20px;
-    
-    
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 90%; /* Ensure it doesn't overflow on smaller screens */
+    margin: 0 auto; /* Center the container */
 }
 
 .logo-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+}
+
+.pagina-joc-logo {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
 }
 
 .pagina-joc-titlu {
     font-size: 2.5rem;
-    color: #fff8f8;
-    margin-bottom: 20px;
+    font-weight: bold;
+    color: #d8c5c5;
+    margin-bottom: 1rem;
 }
 
-.pagina-joc-descriere {
+.pagina-joc-descriere h5 {
     font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 30px;
+    color: #cacaca;
+    margin-bottom: 0.5rem;
 }
 
 .pagina-joc-buton {
-    font-size: 1.2rem;
-    padding: 10px 30px;
     background-color: #ff0068;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
 }
 
 .pagina-joc-info {
-    margin-top: 40px;
-    text-align: left;
+    margin-top: 2rem;
 }
 
-.pagina-joc-info h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.pagina-joc-info ul {
-    list-style: none;
-    padding: 0;
+.pagina-joc-cursuri, .pagina-joc-reguli {
     font-size: 1rem;
-    color: #666;
+    color: #b8b6b6;
 }
 
-.pagina-joc-info ul li {
-    margin-bottom: 10px;
-}
-
-.pagina-joc-cursuri {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 20px;
-}
-
-.pagina-joc-link-cursuri {
+.pagina-joc-link-cursuri, .pagina-joc-link-reguli {
     color: #ff0068;
     text-decoration: none;
 }
 
-.pagina-joc-link-cursuri:hover {
+.pagina-joc-link-cursuri:hover, .pagina-joc-link-reguli:hover {
     text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pagina-joc-titlu {
+        font-size: 2rem;
+    }
+
+    .pagina-joc-descriere h5 {
+        font-size: 1rem;
+    }
+
+    .pagina-joc-buton {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagina-joc-titlu {
+        font-size: 1.5rem;
+    }
+
+    .pagina-joc-descriere h5 {
+        font-size: 0.9rem;
+    }
+
+    .pagina-joc-buton {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
 }

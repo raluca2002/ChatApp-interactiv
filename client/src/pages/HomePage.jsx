@@ -28,14 +28,14 @@ const HomePage = () => {
                                 </Link>
                             </Col>
                         </Row>
-                        <Row className="mt-4">
+                        {/* <Row className="mt-4">
                             <Col>
                                 <h6>Are you a tech?</h6>
                                 <Link to="/teacher-login">
                                     <Button variant="danger">Tech Login</Button>
                                 </Link>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Col>
                 </Row>
             </Container>

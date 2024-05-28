@@ -5,7 +5,7 @@ import { Card, Container, Button } from 'react-bootstrap';
 const BazeProgramarii = () => {
   return (
     <Container className="mt-4">
-      <h1 className="text-center  mb-4">Baze ale programării</h1>
+      <h1 className="text-center mb-4">Baze ale programării</h1>
 
       <Card className="mb-4">
         <Card.Body>
@@ -20,7 +20,7 @@ const BazeProgramarii = () => {
               <Card.Text>
                 <strong>Declarație și inițializare:</strong> În majoritatea limbajelor de programare, o variabilă trebuie declarată și poate fi inițializată.
               </Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`int numar; // Declarație
 numar = 10; // Inițializare
@@ -85,7 +85,7 @@ int numar = 10; // Declarație și inițializare simultan`}
             <Card.Body>
               <Card.Title>Structuri de decizie</Card.Title>
               <Card.Text><strong>If:</strong> Execută un bloc de cod dacă condiția specificată este adevărată.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`if (conditie) {
     // cod executat dacă conditia este adevărată
@@ -94,7 +94,7 @@ int numar = 10; // Declarație și inițializare simultan`}
               </pre>
 
               <Card.Text><strong>Else:</strong> Execută un bloc de cod dacă condiția specificată în <code>if</code> este falsă.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`if (conditie) {
     // cod executat dacă conditia este adevărată
@@ -105,7 +105,7 @@ int numar = 10; // Declarație și inițializare simultan`}
               </pre>
 
               <Card.Text><strong>Else if:</strong> Verifică multiple condiții în ordinea specificată.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`if (conditie1) {
     // cod executat dacă conditia1 este adevărată
@@ -118,7 +118,7 @@ int numar = 10; // Declarație și inițializare simultan`}
               </pre>
 
               <Card.Text><strong>Switch:</strong> Permite selecția uneia dintre mai multe ramuri de execuție pe baza valorii unei expresii.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`switch (expresie) {
     case valoare1:
@@ -139,7 +139,7 @@ int numar = 10; // Declarație și inițializare simultan`}
             <Card.Body>
               <Card.Title>Bucle</Card.Title>
               <Card.Text><strong>For:</strong> Execută un bloc de cod de un număr specificat de ori.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`for (int i = 0; i < 10; i++) {
     // cod executat de 10 ori
@@ -148,7 +148,7 @@ int numar = 10; // Declarație și inițializare simultan`}
               </pre>
 
               <Card.Text><strong>While:</strong> Execută un bloc de cod atâta timp cât condiția specificată este adevărată.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`while (conditie) {
     // cod executat cât timp conditia este adevărată
@@ -157,7 +157,7 @@ int numar = 10; // Declarație și inițializare simultan`}
               </pre>
 
               <Card.Text><strong>Do-While:</strong> Execută un bloc de cod cel puțin o dată și apoi repetă execuția cât timp condiția specificată este adevărată.</Card.Text>
-              <pre>
+              <pre className="code-block">
                 <code>
 {`do {
     // cod executat cel puțin o dată
@@ -168,12 +168,64 @@ int numar = 10; // Declarație și inițializare simultan`}
           </Card>
         </Card.Body>
       </Card>
+
+      <Card className="mb-4">
+        <Card.Body>
+          <Card.Title className="text-secondary">Funcții și proceduri</Card.Title>
+
+          <Card className="mb-3">
+            <Card.Body>
+              <Card.Title>Funcții</Card.Title>
+              <Card.Text>
+                <strong>Definiție:</strong> O funcție este un bloc de cod care poate fi apelat pentru a executa o anumită sarcină și poate returna o valoare.
+              </Card.Text>
+              <Card.Text>
+                <strong>Declarație și definiție:</strong>
+              </Card.Text>
+              <pre className="code-block">
+                <code>
+{`// Declarație
+int adunare(int a, int b);
+
+// Definiție
+int adunare(int a, int b) {
+    return a + b;
+}`}
+                </code>
+              </pre>
+            </Card.Body>
+          </Card>
+
+          <Card className="mb-3">
+            <Card.Body>
+              <Card.Title>Proceduri</Card.Title>
+              <Card.Text>
+                <strong>Definiție:</strong> O procedură este un bloc de cod care poate fi apelat pentru a executa o anumită sarcină, dar nu returnează o valoare.
+              </Card.Text>
+              <Card.Text>
+                <strong>Declarație și definiție:</strong>
+              </Card.Text>
+              <pre className="code-block">
+                <code>
+{`// Declarație
+void afisareMesaj();
+
+// Definiție
+void afisareMesaj() {
+    cout << "Salut, lume!" << endl;
+}`}
+                </code>
+              </pre>
+            </Card.Body>
+          </Card>
+        </Card.Body>
+      </Card>
       
       <div className="text-center">
-<Button className="pagina-joc-buton" href="/materials">Înapoi la Materiale de Învățare</Button>
-</div>
-</Container>
-);
+        <Button className="pagina-joc-buton" href="/materials">Înapoi la Materiale de Învățare</Button>
+      </div>
+    </Container>
+  );
 };
 
 export default BazeProgramarii;

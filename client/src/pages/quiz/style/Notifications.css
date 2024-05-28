@@ -1,0 +1,66 @@
+.notifications {
+    position: relative;
+    display: inline-block;
+}
+
+.notifications-icon {
+    cursor: pointer;
+    position: relative;
+}
+
+.notification-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+
+.notifications-box {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 300px;
+    background: rgb(213, 201, 201);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.notifications-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.mark-as-read {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 0.9rem;
+}
+
+.notification {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.notification.not-read {
+    background: #f5f5f5;
+}
+
+.notification-time {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
+}
