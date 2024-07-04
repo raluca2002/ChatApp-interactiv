@@ -4,32 +4,30 @@ BrainyGate is an admission preparation application designed to help users effici
 Features
 
 Real-Time Chat:
-
 Allows users to communicate instantly with each other.
 Includes emoji support for a more expressive chat experience.
 Real-time notifications for new messages.
-Timed Quizzes:
 
+Timed Quizzes:
 Provides interactive quizzes to test users' knowledge.
 Includes a timer to simulate real exam conditions.
 Quiz results are saved and can be reviewed later.
-Leaderboard:
 
+Leaderboard:
 Displays the highest scores of users.
 Motivates users to improve their performance to climb the leaderboard.
-Educational Materials:
 
+Educational Materials:
 Access to a collection of study materials organized by topics.
 Users can download and review these materials to enhance their knowledge.
 Technologies Used
 
 Frontend:
-
 React: For developing a dynamic and responsive user interface.
 react-input-emoji: For handling and displaying emojis in the chat.
 react-bootstrap: For layout and styling components.
-Backend:
 
+Backend:
 Node.js: For handling client requests and business logic.
 Express: For creating API routes and handling HTTP requests.
 Socket.io: For real-time bidirectional communication between client and server.
