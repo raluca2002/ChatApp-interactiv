@@ -23,7 +23,7 @@ const SinglePlayerPage = () => {
 
 
     return (
-        <Container fluid>
+        <Container >
             <Row className="justify-content-center align-items-center" style={{ height: "100vh" }}>
                 <Col xs={12} md={6} className="text-center">
                     <div>

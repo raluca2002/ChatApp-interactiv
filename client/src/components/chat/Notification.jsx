@@ -1,19 +1,21 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 import { unreadNotificationsFunc } from "../../utils/unreadNotifications";
 import moment from "moment";
-import"../../pages/quiz/style/Notifications.css"
+import "../../pages/quiz/style/Notifications.css"; // Asigură-te că ai stilurile corect importate
 
 const Notification = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useContext(AuthContext);
     const { notifications, userChats, allUsers, markAllNotificationsAsRead, markNotificationAsRead } = useContext(ChatContext);
 
+    // Funcție pentru a calcula notificările necitite
     const unreadNotifications = unreadNotificationsFunc(notifications);
+
+    // Modifică notificările pentru a adăuga numele expeditorului
     const modifiedNotifications = notifications.map((n) => {
         const sender = allUsers.find(user => user._id === n.senderId);
-
         return {
             ...n,
             senderName: sender?.name
@@ -28,7 +30,7 @@ const Notification = () => {
                     width="24"
                     height="24"
                     viewBox="0 0 48 48"
-                    fill="white"  // Modificare aici pentru a face iconița albă
+                    fill="white"  
                 >
                     <title>notification</title>
                     <g id="Layer_2" data-name="Layer 2">
@@ -40,13 +42,13 @@ const Notification = () => {
                         </g>
                     </g>
                 </svg>
-                {unreadNotifications?.length === 0 ? null : (
+                {unreadNotifications?.length > 0 && (
                     <span className="notification-count">
-                        <span>{unreadNotifications?.length}</span>
+                        <span>{unreadNotifications.length}</span>
                     </span>
                 )}
             </div>
-            {isOpen ? (
+            {isOpen && (
                 <div className="notifications-box">
                     <div className="notifications-header">
                         <h3>Notifications</h3>
@@ -57,16 +59,13 @@ const Notification = () => {
                             Mark all as read
                         </div>
                     </div>
-                    {modifiedNotifications?.length === 0 ? (
+                    {modifiedNotifications.length === 0 ? (
                         <span className="notification">No notification yet...</span>
-                    ) : null}
-                    {modifiedNotifications && modifiedNotifications.map((n, index) => {
-                        return (
+                    ) : (
+                        modifiedNotifications.map((n, index) => (
                             <div
                                 key={index}
-                                className={
-                                    n.isRead ? 'notification' : 'notification not-read'
-                                }
+                                className={n.isRead ? 'notification' : 'notification not-read'}
                                 onClick={() => {
                                     markNotificationAsRead(n, userChats, user, notifications);
                                     setIsOpen(false);
@@ -77,10 +76,10 @@ const Notification = () => {
                                     {moment(n.date).calendar()}
                                 </span>
                             </div>
-                        );
-                    })}
+                        ))
+                    )}
                 </div>
-            ) : null}
+            )}
         </div>
     );
 };

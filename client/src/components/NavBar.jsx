@@ -33,8 +33,8 @@ const NavBar = () => {
               <Dropdown.Menu>
                 {/* <Dropdown.Item as={Link} to="/settings">Settings</Dropdown.Item> */}
                 <Dropdown.Item as={Link} to="/chat">Chat</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/rules">Rules</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/materials">Learning</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/rules">Reguli</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/materials">Materiale</Dropdown.Item>
                 <Dropdown.Item as={Link} to="/clasament">Clasament</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

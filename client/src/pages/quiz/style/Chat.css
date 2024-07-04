@@ -9,13 +9,13 @@
     background-color: #1b2a41;
     padding: 16px;
     border-radius: 8px;
-    height: calc(50vh - 32px); /* Ajustăm înălțimea pentru a se potrivi cu caseta de chat */
-    overflow-y: auto; /* Adăugăm scroll */
-    max-width: 400px; /* Lărgirea bara de utilizatori */
+    height: calc(50vh - 32px); 
+    overflow-y: auto; 
+    max-width: 400px; 
 }
 
 .larger-message-box {
-    max-width: 400px; /* Lărgirea bara de utilizatori */
+    max-width: 400px; 
 }
 
 .chat-header {
@@ -26,30 +26,34 @@
 }
 
 .chat-box {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border-radius: px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    height: 50vh; /* Setare înălțime fixă */
+    height: 100%; 
+    max-width: 600px; 
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto; 
+}
+
+.messages {
+    flex-grow: 1; /* Mesajele vor ocupa spațiul disponibil rămas */
+    overflow-y: auto; /* Scrool vertical în zona mesajelor */
 }
 
 .chat-input {
-    display: flex;
-    align-items: center;
     padding: 10px;
-    border-top: 1px solid #ddd;
-    background-color: #fff;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
 }
 
-.message {
-    background-color: #f1f1f1;
+.send-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
     padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    cursor: pointer;
 }
+
 
 .message.self {
     background-color: #d1ffd6;

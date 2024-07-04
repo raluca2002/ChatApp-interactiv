@@ -37,15 +37,6 @@ const Register = () => {
                             <h2 className="mt-3 mb-4" style={{ color: "#ffffff" }}>Sign Up</h2>
                         </div>
                         <Form onSubmit={registerUser}>
-                        {/* <Form.Group controlId="formBasicImage" className="mb-4">
-                            <Form.Label style={{ color: "#ffffff" }}>Profile Picture</Form.Label>
-                            <div className="me-2">
-                            <NavLink to="/setavatar">
-                                    <Button variant="primary">Select Avatar</Button>
-                            </NavLink>                           
-                            </div>
-                        </Form.Group> */}
-
                             <Form.Group controlId="formBasicName" className="mb-3">
                                 <Form.Label style={{ color: "#ffffff" }}>Name</Form.Label>
                                 <Form.Control

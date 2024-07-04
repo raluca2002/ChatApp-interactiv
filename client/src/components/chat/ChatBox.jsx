@@ -5,7 +5,7 @@ import { useFetchRecipientUser } from "../../hooks/useFetchRecipient";
 import { Stack } from "react-bootstrap";
 import moment from "moment";
 import InputEmoji from "react-input-emoji";
-import "../../pages/quiz/style/ChatBox.css";  // Importați fișierul CSS
+import "../../pages/quiz/style/ChatBox.css";
 
 const ChatBox = () => {
     const { user } = useContext(AuthContext);
@@ -17,6 +17,13 @@ const ChatBox = () => {
     useEffect(() => {
         scroll.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
+
+    const handleSendMessage = () => {
+        if (textMessage.trim() !== "") {
+            sendTextMessage(textMessage, user, currentChat._id);
+            setTextMessage(""); // Curăță câmpul de mesaje după trimitere
+        }
+    };
 
     if (!recipientUser)
         return (
@@ -44,7 +51,7 @@ const ChatBox = () => {
                             message?.senderId === user?._id
                                 ? "message self align-self-end flex-grow-0"
                                 : "message align-self-start flex-grow-0"}`}
-                        ref={scroll}
+                        ref={index === messages.length - 1 ? scroll : null}
                     >
                         <span>{message.text}</span>
                         <span className="message-footer">
@@ -56,10 +63,12 @@ const ChatBox = () => {
                     value={textMessage}
                     onChange={setTextMessage}
                     fontFamily="nunito"
-                    borderColor="rgba(72,112,223,0.2"
+                    borderColor="rgba(72,112,223,0.2)"
+                    cleanOnEnter
+                    placeholder="Type a message..."
+                    onEnter={handleSendMessage} // Trimite mesajul la apăsarea tastei Enter
                 />
-                <button className="send-btn" onClick={() =>
-                    sendTextMessage(textMessage, user, currentChat._id, setTextMessage)}>
+                <button className="send-btn" onClick={handleSendMessage}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

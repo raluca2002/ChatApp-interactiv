@@ -41,21 +41,25 @@ const YourResults = () => {
             <table>
                 <thead className="table-header">
                     <tr className="table-row">
-                        <td>Name</td>
-                        <td>Max Score</td>
+                        <th>Position</th>
+                        <th>Name</th>
+                        <th>Max Score</th>
                     </tr>
                 </thead>
                 <tbody>
                     {userResults.length > 0 ? (
                         userResults.map((user, index) => (
                             <tr key={index} className="table-body">
+                                <td className={`position ${index === 0 ? 'first-place' : (index === 1 ? 'second-place' : (index === 2 ? 'third-place' : ''))}`}>
+                                    {index + 1}
+                                </td>
                                 <td>{user.username}</td>
                                 <td>{user.maxScore}</td>
                             </tr>
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="2">No Data Found</td>
+                            <td colSpan="3">No Data Found</td>
                         </tr>
                     )}
                 </tbody>

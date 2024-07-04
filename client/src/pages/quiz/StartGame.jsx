@@ -66,7 +66,7 @@ const StartGamePage = () => {
     return (
         <Container fluid className="quiz-container">
             <Row className="justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-                <AnswerTimer key={timerKey} duration={100} onTimeUp={handleTimeUp} />
+                <AnswerTimer key={timerKey} duration={10} onTimeUp={handleTimeUp} />
                 <Col xs={12} md={8} className="text-center">
                     <div className="container">
                         <h1 className="title">Welcome to the Game!</h1>

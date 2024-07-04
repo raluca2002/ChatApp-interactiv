@@ -184,3 +184,19 @@ body, html {
   color: #ffcc00;
   margin: 10px 0;
 }
+
+.first-place {
+  /* Stiluri pentru locul 1 */
+  color: rgb(223, 162, 7); /* exemplu de culoare roșie */
+  font-weight: bold;
+}
+
+.second-place {
+  /* Stiluri pentru locul 2 */
+  color: rgb(18, 81, 18); /* exemplu de culoare verde */
+}
+
+.third-place {
+  /* Stiluri pentru locul 3 */
+  color: rgb(222, 13, 65); /* exemplu de culoare albastră */
+}

@@ -118,9 +118,9 @@ EndAlgorithm
 Precizați care dintre următoarele afirmații sunt corecte:`,
         options: [
             "Dacă n = 812376, valoarea returnată de algoritm este 6.",
-            "Dacă n = 8237631, valoarea returnată de algoritm este 1.",
-            "Dacă n = 4868, valoarea returnată de algoritm este 8.",
-            "Dacă n = 51, valoarea returnată de algoritm este 0."
+            "Dacă n = 82331, valoarea returnată de algoritm este 1.",
+            "Dacă n = 486, valoarea returnată de algoritm este 8.",
+            "Dacă n = 515, valoarea returnată de algoritm este 0."
         ]
     },
     {
@@ -202,12 +202,15 @@ EndAlgorithm
     },
     {
         id: 6,
-        question: "Care dintre următoarele afirmații referitoare la variantele subiectului 5 sunt adevărate?",
+        question: `Se consideră numerele întregi a și b (-1000 ≤ a, b ≤ 1000) și expresia: NOT ((a > 0) AND (b > 0)). Care dintre următoarele expresii sunt echivalente cu expresia dată mai sus:
+\`\`\`
+NOT ((a > 0) AND (b > 0))
+\`\`\``,
         options: [
-            "În timpul execuției algoritmului de la varianta A nu se afișează nimic.",
-            "Algoritmul de la varianta B nu se va apela recursiv pentru nicio valoare validă a parametrului x.",
-            "Algoritmul de la varianta C ar fi corect, dacă am schimba '=' cu '≠'",
-            "Algoritmul de la varianta D ar fi corect, dacă am schimba 'imp(x)' cu 'imp(x DIV 2)'."
+            "(NOT(a<0))AND(NOT(b<0))",
+            "(a≤0)AND(b≤0)",
+            "(NOT(a>0))OR(NOT(b>0))",
+            "NOT((a>0)OR(b<0))"
         ]
     },
     {
@@ -400,14 +403,15 @@ Dacă a = 600, precizați pentru care valori ale lui b se afișează 4 numere î
     },
     {
         id: 15,
-        question: `Considerând algoritmul de la subiectul anterior, precizați care dintre următoarele afirmații sunt adevărate:`,
-        options: [
-            "Algoritmul afișează divizorii comuni ai numerelor a și b.",
-            "Algoritmul afișează divizorii proprii comuni ai numerelor a și b.",
-            "Algoritmul afișează divizorii impari comuni ai numerelor a și b.",
-            "Algoritmul afișează divizorii pari comuni ai numerelor a și b."
-        ],
-        answer: 4
+        question: `Se consideră algoritmul f(n) dat în enunțul anterior, dar acum parametrul n este număr natural cu două cifre (10 ≤ n ≤ 99 la momentul apelului).
+        Care dintre următoarele variante conțin doar numere pentru care algoritmul returnează valoarea 3?`,
+                options: [
+                    "61, 65, 67",
+                    "62, 66, 68",
+                    "16, 56, 76",
+                    "26, 66, 86"
+                ],
+                answer: 3
     },
     {
         id: 16,
@@ -873,7 +877,6 @@ EndAlgorithm
         ],
         answer: 3
     },
-    // Încă 30 de întrebări suplimentare trebuie adăugate aici pentru a ajunge la 60
 ];
 
-module.exports.answers = [1, 1, 2, 1, 1, 3, 3, 1, 0, 1, 1, 3, 3, 1, 4, 4, 3, 3, 2, 2, 2, 3, 2, 2, 3, 1, 2, 1, 2, 3];
+module.exports.answers = [1, 0, 0, 2, 3, 0, 3, 0, 2, 0, 1, 3, 1, 0, 1, 1, 2, 3, 0, 2, 0, 2, 3, 2, 1, 0, 3, 0, 1, 3];

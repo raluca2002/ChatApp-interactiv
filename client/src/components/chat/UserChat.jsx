@@ -11,7 +11,7 @@ import avatar8 from "../../assets/avatar8.jpg";
 import avatar9 from "../../assets/avatar9.jpg";
 import avatar10 from "../../assets/avatar10.jpg";
 import avatar11 from "../../assets/avatar11.jpg";
-import "./chat.css"
+import "./chat.css";
 
 import { useContext } from "react";
 import { ChatContext } from "../../context/ChatContext";
@@ -61,39 +61,47 @@ const UserChat = ({ chat, user }) => {
 
   const avatar = getRandomAvatar();
 
-  // console.log("ultimul text:", latestMessage)
+  // Verificare pentru a nu afișa utilizatorii fără nume
+  if (!recipientUser?.name) {
+    return null;
+  }
 
   return (
-    <Stack
-      direction="horizontal"
-      gap={3}
-      className="user-card align-items-center p-2 justify-content-between"
-      role="button"
-      onClick={() => {
-        if (thisUserNotifications?.length !== 0) {
-          markThisUserNotificationsAsRead(thisUserNotifications, notifications);
-        }
-      }}
-    >
-      <div className="d-flex">
-        <div className="me-2">
-          <img src={avatar} height="35px" alt="User Avatar" />
+    <div className="user-chat">
+      <Stack
+        direction="horizontal"
+        gap={3}
+        className="user-card align-items-center p-2 justify-content-between"
+        role="button"
+        onClick={() => {
+          if (thisUserNotifications?.length !== 0) {
+            markThisUserNotificationsAsRead(thisUserNotifications, notifications);
+          }
+        }}
+      >
+        <div className="emoji-container">
+          {/* Aici adaugă emoji-urile */}
         </div>
-        <div className="text-content">
-          <div className="name">{recipientUser?.name}</div>
-          <div className="text">
-            {latestMessage?.text && <span>{truncateText(latestMessage?.text)}</span>}
+        <div className="d-flex">
+          <div className="me-2 user-avatar">
+            <img src={avatar} height="35px" alt="User Avatar" />
+          </div>
+          <div className="text-content">
+            <div className="name">{recipientUser.name}</div>
+            <div className="text">
+              {latestMessage?.text && <span>{truncateText(latestMessage?.text)}</span>}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="d-flex flex-column aligh-items-end">
-        <div className="date">{moment(latestMessage?.createdAt).calendar()}</div>
-        <div className={thisUserNotifications?.length > 0 ? "this-user-notifications" : ""}>
-          {thisUserNotifications?.length > 0 ? thisUserNotifications?.length : ""}
+        <div className="d-flex flex-column aligh-items-end">
+          <div className="date">{moment(latestMessage?.createdAt).calendar()}</div>
+          <div className={thisUserNotifications?.length > 0 ? "this-user-notifications" : ""}>
+            {thisUserNotifications?.length > 0 ? thisUserNotifications?.length : ""}
+          </div>
+          <span className={isOnline ? "user-online" : ""}></span>
         </div>
-        <span className={isOnline ? "user-online" : ""}></span>
-      </div>
-    </Stack>
+      </Stack>
+    </div>
   );
 };
 

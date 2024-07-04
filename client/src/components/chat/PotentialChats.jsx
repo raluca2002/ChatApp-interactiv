@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 import avatar1 from "../../assets/avatar1.jpg";
@@ -36,24 +36,29 @@ const getRandomAvatar = () => {
 const PotentialChats = () => {
   const { user } = useContext(AuthContext);
   const { potentialChats, createChat, onlineUsers } = useContext(ChatContext);
+  const scrollContainerRef = useRef(null);
 
   return (
-    <div className="all-users">
-      {potentialChats && potentialChats.map((u, index) => {
-        const avatar = getRandomAvatar();
+    <div className="all-users-container" ref={scrollContainerRef}>
+      {/* <div className="arrow arrow-left" onClick={scrollLeft}>{"<"}</div> */}
+      <div className="all-users">
+        {potentialChats && potentialChats.map((u, index) => {
+          const avatar = getRandomAvatar();
 
-        return (
-          <div className="single-user" key={index} onClick={() => createChat(user._id, u._id)}>
-            <div className="user-avatar" title={u.name}>
-              <img src={avatar} alt={u.name} className="avatar-img" />
+          return (
+            <div className="single-user" key={index} onClick={() => createChat(user._id, u._id)}>
+              <div className="user-avatar" title={u.name}>
+                <img src={avatar} alt={u.name} className="avatar-img" />
+              </div>
+              <div className="user-info">
+                <div className="user-name">{u.name}</div>
+                <span className={onlineUsers?.some((user) => user?.userId === u?._id) ? "user-online" : ""}></span>
+              </div>
             </div>
-            <div className="user-info">
-              <div className="user-name">{u.name}</div>
-              <span className={onlineUsers?.some((user) => user?.userId === u?._id) ? "user-online" : ""}></span>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      {/* <div className="arrow arrow-right" onClick={scrollRight}>{">"}</div> */}
     </div>
   );
 };

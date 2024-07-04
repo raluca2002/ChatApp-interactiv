@@ -1,5 +1,5 @@
 .chat-box {
-    background-color: #fff;
+    background-color: #686767;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 16px;
@@ -13,7 +13,7 @@
 }
 
 .chat-header {
-    background-color: #ff0068;
+    background-color: #2a3bf2;
     padding: 10px;
     border-radius: 8px 8px 0 0;
     color: white;

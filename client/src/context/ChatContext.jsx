@@ -165,7 +165,7 @@ export const ChatContextProvider =  ({children, user}) => {
             chatId: currentChatId,
             senderId: sender._id,
             text: textMessage
-        }))
+        }));
 
         if(response.error){
             return setSendTextMessageError(response);
